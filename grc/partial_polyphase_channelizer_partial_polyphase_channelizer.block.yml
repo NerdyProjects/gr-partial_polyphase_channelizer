@@ -1,0 +1,50 @@
+id: partial_polyphase_channelizer_partial_polyphase_channelizer
+label: partial_polyphase_channelizer
+category: '[partial_polyphase_channelizer]'
+
+parameters:
+-   id: channel_map
+    label: channel_map
+    dtype: raw
+    default: '[]'
+    hide: none
+-   id: channels
+    label: channels
+    dtype: raw
+    default: '4'
+    hide: none
+-   id: oversampling
+    label: oversampling
+    dtype: raw
+    default: '1'
+    hide: none
+-   id: taps
+    label: taps
+    dtype: raw
+    default: '0'
+    hide: none
+
+inputs:
+-   label: in
+    dtype: complex
+    vlen: 1
+
+outputs:
+-   label: out
+    dtype: complex
+    vlen: 1
+    multiplicity: ${ len(channel_map) }
+
+templates:
+    imports: 'from partial_polyphase_channelizer import partial_polyphase_channelizer  #
+        grc-generated hier_block'
+    make: "partial_polyphase_channelizer(\n    channel_map=${ channel_map },\n   \
+        \ channels=${ channels },\n    oversampling=${ oversampling },\n    taps=${\
+        \ taps },\n)"
+    callbacks:
+    - set_channel_map(${ channel_map })
+    - set_channels(${ channels })
+    - set_oversampling(${ oversampling })
+    - set_taps(${ taps })
+
+file_format: 1

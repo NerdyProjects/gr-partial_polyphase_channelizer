@@ -1,0 +1,11 @@
+This is the partial_polyphase_channelizer-write-a-block package meant as a guide to building
+out-of-tree packages. To use the partial_polyphase_channelizer blocks, the Python namespaces
+is in 'partial_polyphase_channelizer', which is imported as:
+
+    import partial_polyphase_channelizer
+
+See the Doxygen documentation for details about the blocks available
+in this package. A quick listing of the details can be found in Python
+after importing by using:
+
+    help(partial_polyphase_channelizer)
